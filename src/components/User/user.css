@@ -1,0 +1,17 @@
+
+.userInput {
+  width: 180px;
+  
+  
+}
+.userInput input {
+  width: 100%;
+  height: 30px;
+  padding-left: 10px;
+  border: 2px solid gray;
+  border-radius: 5px
+}
+
+.userOutput {
+  font-family: 'Courier New', Courier, monospace
+}
