@@ -10,17 +10,33 @@ import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
 
-  state = {
-    persons: [
-      {name: 'Pedro', age: 41, id:'123'},
-      {name: 'Carlos', age: 38, id:'456'},
-      {name: 'Juan', age: 25, id:'789'},
+  constructor(props) {
+    super(props)
+    console.log('[App.js] Inside Constructor', props)
+    this.state = {
+      persons: [
+        {name: 'Pedro', age: 41, id: '123' },
+        {name: 'Carlos', age: 38, id: '456' },
+        {name: 'Juan', age: 25, id: '789' },
+      ],
 
-    ],
+      otherState: 'some other value',
+      showPersons: false
+    }
 
-    otherState: 'some other value',
-    showPersons: false
+
   }
+
+  componentWillMount() {
+    console.log('[App.js] Component will mount' )
+  }
+
+  componentDidMount() {
+    console.log('[App.js] Inside componentDidMount')
+  }
+
+
+
 
   deletePersonHandler = (personIndex) => {
     const persons = [...this.state.persons]
@@ -47,7 +63,7 @@ togglePersonHandler = () => {
 }
 
   render() {
-
+    console.log('[App.js] Inside Render()')
     let persons = null;
 
 
@@ -66,6 +82,7 @@ togglePersonHandler = () => {
       <div className={styles.App}>
         <Cockpit 
           showPersons={this.state.showPersons} 
+          title={this.props.title}
           persons={this.state.persons}
           click={this.togglePersonHandler} />
           {persons}

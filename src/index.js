@@ -5,7 +5,7 @@ import App from './containers/App';
 // import Sample from './sample';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render( <App /> , document.getElementById('root'));
+ReactDOM.render( <App title={'Gentes Relevantes'}/> , document.getElementById('root'));
 registerServiceWorker();
 
 
