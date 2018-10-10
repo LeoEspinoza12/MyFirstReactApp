@@ -1,13 +1,16 @@
 .red {
-  color: red
+  color: red;
+  font-weight: bold
 }
 
 .green {
-  color: green
+  color: green;
+  font-weight: bold
 }
 
 .orange {
-  color: orange
+  color: orange;
+  font-weight: bold
 }
 
 /* 
