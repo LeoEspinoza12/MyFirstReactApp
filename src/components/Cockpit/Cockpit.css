@@ -20,7 +20,7 @@ to the elements whenever we are clicking the button
 element
 */
 
-Cockpit button {
+button {
   border: 1px solid blue;
   padding: 16px;
   background-color: green;
@@ -29,16 +29,16 @@ Cockpit button {
   cursor: pointer
 }
 
-Cockpit Button:hover {
+button:hover {
   background-color: lightgreen;
   color: black;
 }
 
-Cockpit button.Red {
+button.Red {
   background-color: red
 }
 
-Cockpit button.Red:hover {
+button.Red:hover {
   background-color: salmon;
   color: black
 }

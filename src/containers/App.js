@@ -1,6 +1,6 @@
 
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styles from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
@@ -8,7 +8,7 @@ import Cockpit from '../components/Cockpit/Cockpit';
 // import ErrorBoundery from '../components/errorBoundery/errorBoundery'
 
 
-class App extends Component {
+class App extends PureComponent {
 
   constructor(props) {
     super(props)
@@ -34,6 +34,23 @@ class App extends Component {
   componentDidMount() {
     console.log('[App.js] Inside componentDidMount')
   }
+
+
+
+/////////////////////////
+// shouldComponentUpdate(nextProps, nextState) {
+//   console.log('[Update APP.js] Inside shouldComponentsUpdate Persons.Js', nextProps, nextState)
+//    return nextState.persons !== this.state.persons || nextState.showPersons !== this.state.showPersons;
+//   // return true
+// }
+componentWillUpdate(nextProps, nextState) {
+  console.log('[Update App.js] Inside componentWillUpdate Persons.Js', nextProps, nextState)
+}
+
+componentDidUpdate(nextProps, nextState) {
+  console.log('[Update APP.js] Inside componentDidUpdate Persons.Js', nextProps, nextState)
+}
+/////////////////////////
 
 
 
@@ -80,6 +97,7 @@ togglePersonHandler = () => {
     return (
 
       <div className={styles.App}>
+        {/* <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button> */}
         <Cockpit 
           showPersons={this.state.showPersons} 
           title={this.props.title}

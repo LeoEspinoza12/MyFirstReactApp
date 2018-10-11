@@ -16,7 +16,7 @@ class Person extends Component {
     console.log('[PersonData.js] Inside componentDidMount')
   }
   render () {
-    console.log('[PersonData.js] Inside render')
+    console.log('[PersonData.js] Inside render');
     return (
       <div onClick={this.props.click} className={classes.Person}>
         <h5>Mi llamo es {this.props.name} y soy {this.props.age}</h5>
@@ -24,6 +24,7 @@ class Person extends Component {
         <input type="text" onChange={this.props.changed} value={this.props.name}/>
       </div>
     )
+  
   }
 }
 
