@@ -1,9 +1,12 @@
 
 
 import React, { PureComponent } from 'react';
-import styles from './App.css';
+import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+
+import withClass from '../hoc/WithClass'; 
+import Aux from '../hoc/Aux'
 
 // import ErrorBoundery from '../components/errorBoundery/errorBoundery'
 
@@ -21,7 +24,8 @@ class App extends PureComponent {
       ],
 
       otherState: 'some other value',
-      showPersons: false
+      showPersons: false,
+      toggleClicked: 0   
     }
 
 
@@ -76,7 +80,13 @@ componentDidUpdate(nextProps, nextState) {
 
 togglePersonHandler = () => {
   const stateShow = this.state.showPersons
-  this.setState({showPersons: !stateShow})
+  this.setState( (prevState, props) => {
+    return {
+      showPersons: !stateShow,
+      toggleClicked: prevState.state.toggleClicked + 1
+      }
+    
+  })
 }
 
   render() {
@@ -95,20 +105,19 @@ togglePersonHandler = () => {
 
 
     return (
-
-      <div className={styles.App}>
-        {/* <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button> */}
+      <Aux>
+  
         <Cockpit 
           showPersons={this.state.showPersons} 
           title={this.props.title}
           persons={this.state.persons}
           click={this.togglePersonHandler} />
           {persons}
-      </div>
+      </Aux>
     );
 
     
   }
 }
 
-  export default App;
+  export default withClass(App, classes.App);
