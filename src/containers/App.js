@@ -83,7 +83,7 @@ togglePersonHandler = () => {
   this.setState( (prevState, props) => {
     return {
       showPersons: !stateShow,
-      toggleClicked: prevState.state.toggleClicked + 1
+      toggleClicked: prevState.toggleClicked + 1
       }
     
   })

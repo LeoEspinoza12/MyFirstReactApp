@@ -45,6 +45,7 @@ componentDidUpdate(nextProps, nextState) {
           age={person.age} 
             click={() => this.props.click(index)} 
           key={person.id}
+            position = {index}  
         changed={(event)=> this.props.changed(event, person.id)}/>
       } )
     }
