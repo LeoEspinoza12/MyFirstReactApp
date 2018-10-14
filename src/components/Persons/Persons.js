@@ -45,13 +45,15 @@ componentDidUpdate(nextProps, nextState) {
       return  <Person 
        name={person.name} 
           age={person.age} 
-            click={() => this.props.click(index)} 
+          click={() => this.props.click(index)} 
             // forwardedRef = {this.inputElement}
           key={person.id}
           ref = {this.lastPersonRef}
-            position = {index}  
-            forwardedRef={this.lastPersonRef}
-        changed={(event)=> this.props.changed(event, person.id)}/>
+          position = {index}  
+          forwardedRef={this.lastPersonRef}
+          changed={(event)=> this.props.changed(event, person.id)}
+          
+          />
       } )
     }
 }

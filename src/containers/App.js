@@ -10,6 +10,7 @@ import Aux from '../hoc/Aux'
 
 // import ErrorBoundery from '../components/errorBoundery/errorBoundery'
 
+export const AuthContext = React.createContext(false);
 
 class App extends PureComponent {
 
@@ -50,6 +51,17 @@ class App extends PureComponent {
 // }
 componentWillUpdate(nextProps, nextState) {
   console.log('[Update App.js] Inside componentWillUpdate Persons.Js', nextProps, nextState)
+}
+
+static getDerivedStateFromProps(nextProps, prevState){
+   console.log('[Update App.js] Inside getDerivedStateFromProps.Js', nextProps, prevState);
+
+   return prevState
+}
+
+
+getSnapshotBeforeUpdate(){
+  console.log('[Update App.js] Inside getSnapshotBeforeUpdate');
 }
 
 componentDidUpdate(nextProps, nextState) {
@@ -105,7 +117,8 @@ loginHandler = () =>{
       persons = <Persons 
                   persons={this.state.persons} 
                   click={this.deletePersonHandler}
-                  chang ed={this.nameChangeHandler} />
+                  chang ed={this.nameChangeHandler} 
+                  />
       }
 
 
@@ -120,7 +133,12 @@ loginHandler = () =>{
           persons={this.state.persons}
           login={this.loginHandler}
           click={this.togglePersonHandler} />
+
+          <AuthContext.Provider value={this.state.authenticated}>
           {persons}
+          </AuthContext.Provider>
+
+           
       </Aux>
     );
 
