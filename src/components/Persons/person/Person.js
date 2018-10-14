@@ -7,7 +7,8 @@ import Aux from '../../../hoc/Aux'
 class Person extends Component {
   constructor(props) {
     super(props)
-    console.log('[PersonData.js] Inside Constructor', props)
+    console.log('[PersonData.js] Inside Constructor', props);
+    this.inputElement = React.createRef();
   }
 
   componentWillMount() {
@@ -17,9 +18,14 @@ class Person extends Component {
   componentDidMount() {
     console.log('[PersonData.js] Inside componentDidMount')
     if(this.props.position === 0){
-      this.inputElement.focus()
+      this.inputElement.current.focus()
     }
   }
+
+  focus() {
+    this.inputElement.current.focus()
+  }
+
   render () {
     console.log('[PersonData.js] Inside render');
     return (
@@ -27,7 +33,7 @@ class Person extends Component {
         <h5 onClick={this.props.click}>Mi llamo es {this.props.name} y soy {this.props.age}</h5>
         <p>{this.props.children}</p>
         <input 
-          ref = { (inp) => { this.inputElement = inp}}
+          ref = { this.inputElement}
           type="text"
         
           onChange={this.props.changed} 
@@ -46,4 +52,5 @@ Person.propTypes = {
   changed: propTypes.func 
 }
 
-export default WithClass(Person, classes.Person);
+// export default WithClass(Person, classes.Person);
+export default Person;

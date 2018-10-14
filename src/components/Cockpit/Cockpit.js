@@ -33,6 +33,7 @@ const cockpit = (props) => {
       <h1 className="App-title">{props.title}</h1>
       <p className={assignedClasses.join(' ')}>This is the List</p>
       <button className={btnClass} onClick={props.click} >Switch Toggle</button>
+      <button onClick={props.login}>Login</button>
     </div>
 </Aux>
 

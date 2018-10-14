@@ -25,7 +25,8 @@ class App extends PureComponent {
 
       otherState: 'some other value',
       showPersons: false,
-      toggleClicked: 0   
+      toggleClicked: 0,   
+      authenticated: false
     }
 
 
@@ -89,6 +90,12 @@ togglePersonHandler = () => {
   })
 }
 
+
+loginHandler = () =>{
+  this.setState({authenticated: true})
+}
+
+
   render() {
     console.log('[App.js] Inside Render()')
     let persons = null;
@@ -98,7 +105,7 @@ togglePersonHandler = () => {
       persons = <Persons 
                   persons={this.state.persons} 
                   click={this.deletePersonHandler}
-                  changed={this.nameChangeHandler} />
+                  chang ed={this.nameChangeHandler} />
       }
 
 
@@ -111,6 +118,7 @@ togglePersonHandler = () => {
           showPersons={this.state.showPersons} 
           title={this.props.title}
           persons={this.state.persons}
+          login={this.loginHandler}
           click={this.togglePersonHandler} />
           {persons}
       </Aux>
